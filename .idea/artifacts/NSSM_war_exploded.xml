@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="NSSM:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/NSSM_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="NSSM/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="NSSM" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
