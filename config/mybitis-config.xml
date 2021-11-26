@@ -3,10 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<!--    如果项目比较大，不是很建议写别名，不利于维护-->
     <typeAliases>
         <package name="com.pojo"/>
     </typeAliases>
-    <mappers>
-        <mapper resource="com/mapper/UserMapper.xml"/>
-    </mappers>
+
+<!--    前面开启了mapper宝扫描，此处可以不用配置-->
+<!--    <mappers>-->
+<!--        <mapper resource="com/mapper/UserMapper.xml"/>-->
+<!--    </mappers>-->
 </configuration>

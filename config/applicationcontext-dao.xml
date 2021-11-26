@@ -37,7 +37,7 @@
         <property name="configLocation" value="classpath:mybitis-config.xml"/>
     </bean>
 
-<!--    开启mapper包扫描-->
+<!--    开启mapper包扫描 注：此处开启了包扫描，在mybatis-config.xml文件中就不需要配置mappers标签-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mapper"/>
     </bean>

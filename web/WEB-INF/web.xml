@@ -11,7 +11,7 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <!--    编码过滤器-->
+    <!--    编码过滤器 注：这个一定要在第一个filter的位置-->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -35,6 +35,29 @@
     <!--        服务器启动后即加载spring mvc配置文件-->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+    <!--    配置HiddenHttpMethodFilter，实现将post转化为：delete，put-->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 本次需要做的配置，注意位置，要放在配置springmvc的url-pattern之前 -->
+    <!-- 表示当程序加载符合这些路径的资源时，不会通过dispatchservlet -->
+    <!-- 用于访问静态资源   -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>/static/*/*</url-pattern>
+    </servlet-mapping>
+
+
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
     <!--        拦截所有请求（除了jsp）-->
